@@ -1,0 +1,14 @@
+[project]
+name = "union-template"
+version = "0.1.0"
+description = "Minimal Union workflow template"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "flyte==2.2.4",
+]
+
+[dependency-groups]
+dev = [
+    "pytest>=8.0.0",
+]
