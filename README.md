@@ -44,6 +44,19 @@ uv add <pakke>
 uv add --dev <pakke>
 uv sync --dev
 ```
+
+Opprett Flyte-konfigurasjon og test tilgang:
+
+```bash
+flyte create config --endpoint union.data.nav.no --org union-nav --project <prosjekt> --domain development
+flyte get project
+```
+
+Kjør og deploy til Union:
+
+```bash
+flyte run --domain development workflow.py main
+flyte deploy --domain development --all workflow.py
 ```
 
 Før koden kjøres i Union bør den kunne importeres og testes lokalt. Hold selve task-funksjonene små, og flytt gjerne domenelogikk til vanlige Python-funksjoner som kan testes uten Union.

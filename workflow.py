@@ -7,10 +7,15 @@ env = flyte.TaskEnvironment(
 )
 
 
-def add_numbers(a: int, b: int) -> int:
-    return a + b
+def format_message(message: str) -> str:
+    return f"ok: {message}"
 
 
 @env.task
-async def addition_workflow(a: int = 1, b: int = 2) -> int:
-    return add_numbers(a=a, b=b)
+def hello() -> str:
+    return format_message("union")
+
+
+@env.task()
+async def main() -> str:
+    return hello()

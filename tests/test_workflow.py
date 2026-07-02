@@ -1,5 +1,5 @@
-from workflow import add_numbers
+from workflow import format_message
 
 
-def test_add_numbers() -> None:
-    assert add_numbers(a=2, b=3) == 5
+def test_format_message() -> None:
+    assert format_message("union") == "ok: union"
