@@ -28,13 +28,22 @@ En typisk struktur kan være:
 └── README.md
 ```
 
-Initialiser prosjektet med `uv`, og legg inn de nødvendige avhengighetene. For et minimalt workflow-prosjekt holder det med `flyte` og `pytest`; legg til domeneavhengigheter etter behov.
+Initialiser prosjektet med uv, og legg inn de nødvendige avhengighetene. For et minimalt workflow-prosjekt holder det med flyte og pytest; legg til domeneavhengigheter etter behov.
 
 ```bash
-uv init --bare
-uv add flyte==2.2.4
-uv add --dev pytest
+uv venv
+source .venv/bin/activate
+uv sync --dev
 uv run pytest
+```
+
+For å legge til nye avhengigheter senere:
+
+```bash
+uv add <pakke>
+uv add --dev <pakke>
+uv sync --dev
+```
 ```
 
 Før koden kjøres i Union bør den kunne importeres og testes lokalt. Hold selve task-funksjonene små, og flytt gjerne domenelogikk til vanlige Python-funksjoner som kan testes uten Union.
