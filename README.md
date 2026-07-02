@@ -22,6 +22,10 @@ En typisk struktur kan være:
 ```text
 .
 ├── workflow.py
+├── manifests/
+│   ├── utsa-dev.yaml
+│   ├── utsa-staging.yaml
+│   └── utsa-prod.yaml
 ├── pyproject.toml
 ├── tests/
 │   └── test_workflow.py
@@ -58,6 +62,12 @@ Kjør og deploy til Union:
 flyte run --domain development workflow.py main
 flyte deploy --domain development --all workflow.py
 ```
+
+## Team-spesifikk konfigurasjon
+
+Template for service accounts ligger i [manifests/utsa-dev.yaml](manifests/utsa-dev.yaml), [manifests/utsa-staging.yaml](manifests/utsa-staging.yaml) og [manifests/utsa-prod.yaml](manifests/utsa-prod.yaml). Bytt ut `<team>` og oppdater allowlists etter behov.
+
+Manifestet kan deployes med felles GitHub Action `navikt/union-config` (se KNADA-dokumentasjonen for eksempel-workflow).
 
 Før koden kjøres i Union bør den kunne importeres og testes lokalt. Hold selve task-funksjonene små, og flytt gjerne domenelogikk til vanlige Python-funksjoner som kan testes uten Union.
 

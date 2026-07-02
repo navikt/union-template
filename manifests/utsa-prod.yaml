@@ -1,0 +1,12 @@
+apiVersion: data.nav.no/v1alpha1
+kind: UnionTeamServiceAccounts
+metadata:
+  name: <team>-production
+spec:
+  project: <team>
+  domain: production
+  serviceAccounts:
+    - name: default
+      externalAllowlist:
+        - host: github.com
+      internalAllowlist: []
